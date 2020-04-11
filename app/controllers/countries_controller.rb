@@ -15,13 +15,12 @@ class CountriesController < ApplicationController
     end
 
     def convert
+        key = ENV['CONVERSION_API_KEY']
         from = params['from']
         to = params['to']
         amount = params['amount']
-        byebug
-        amt = JSON.parse(RestClient.get("https://data.fixer.io/api/convert?access_key=7565a1db44ef9053cc4d95b8ac794ffc&from=GBP&to=JPY&amount=25"))
-        
-        render json: amt
+        result = JSON.parse(RestClient.get("https://data.fixer.io/api/convert?access_key=#{key}&from=#{from}&to=#{to}&amount=#{amount}"))
+        render json: result
     end 
 
 end
