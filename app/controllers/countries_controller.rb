@@ -23,4 +23,15 @@ class CountriesController < ApplicationController
         render json: result
     end 
 
+    def historicalRates
+        key = ENV['CONVERSION_API_KEY']
+        base = params['base']
+        symbol = params['symbol']
+        startDate = params['start_date']
+        byebug
+        result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}"))
+        render json: result
+    end
+
+
 end
