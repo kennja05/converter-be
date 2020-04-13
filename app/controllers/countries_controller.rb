@@ -28,8 +28,7 @@ class CountriesController < ApplicationController
         base = params['base']
         symbol = params['symbol']
         startDate = params['start_date']
-        byebug
-        result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}"))
+        result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
         render json: result
     end
 
