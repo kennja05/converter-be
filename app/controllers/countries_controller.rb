@@ -28,8 +28,30 @@ class CountriesController < ApplicationController
         base = params['base']
         symbol = params['symbol']
         startDate = params['start_date']
+        byebug
         result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
         render json: result
+    end
+
+    def hrArray
+        myArr = []
+        base = params['base']
+        symbol = params['symbol']
+        startDate = params['start_date'].split('-')
+        byebug   
+        i = 0
+        while i < 5 do 
+            startDate[0] -= i
+            startDate.join("-")
+            byebug
+            result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
+            myArr.push(result)
+            byebug
+            i+=1
+        end 
+        
+        render json: myArr
+
     end
 
 
