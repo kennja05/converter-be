@@ -34,24 +34,23 @@ class CountriesController < ApplicationController
     end
 
     def hrArray
+        key = ENV['CONVERSION_API_KEY']
         myArr = []
         base = params['base']
         symbol = params['symbol']
-        startDate = params['start_date'].split('-')
-        byebug   
         i = 0
         while i < 5 do 
-            startDate[0] -= i
-            startDate.join("-")
-            byebug
-            result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
-            myArr.push(result)
-            byebug
+            startDate = params['start_date']
+            dateToArr = startDate.split('-')
+            neededYear = dateToArr[0].to_i - i
+            dateToArr[0] = neededYear
+            pastDate = dateToArr.join('-')
+            result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{pastDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
+            myArr.push(result)        
             i+=1
         end 
         
         render json: myArr
-
     end
 
 
