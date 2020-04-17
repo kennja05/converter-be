@@ -25,16 +25,6 @@ class CountriesController < ApplicationController
 
     def historicalRates
         key = ENV['CONVERSION_API_KEY']
-        base = params['base']
-        symbol = params['symbol']
-        startDate = params['start_date']
-        byebug
-        result = JSON.parse(RestClient.get("https://data.fixer.io/api/#{startDate}?access_key=#{key}&symbols=#{symbol}&base=#{base}"))
-        render json: result
-    end
-
-    def hrArray
-        key = ENV['CONVERSION_API_KEY']
         myArr = []
         base = params['base']
         symbol = params['symbol']
@@ -49,7 +39,6 @@ class CountriesController < ApplicationController
             myArr.push(result)        
             i+=1
         end 
-        
         render json: myArr
     end
 
