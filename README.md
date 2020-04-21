@@ -2,7 +2,7 @@
 
 Intro: 
 
-    In order to make use of a currency conversion API which I paid $10 for access for the rest of the month of April 2020, I am creating this application to explore concepts in currency conversion and data visualization
+    In order to make use of a currency conversion API which I have access to for the rest of the month of April 2020, I am creating this application to explore concepts in currency conversion and data visualization
 
 Steps: 
 
