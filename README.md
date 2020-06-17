@@ -1,15 +1,17 @@
-# README
+Live Site
+=========
+https://currency-converter05.netlify.app/convert
 
-Intro: 
+Features
+========
+**Convert Currency**
 
-    In order to make use of a currency conversion API which I have access to for the rest of the month of April 2020, I am creating this application to explore concepts in currency conversion and data visualization
+![CONVERT](https://media.giphy.com/media/lnJpDcLbWo7bNLrIIx/giphy.gif)
 
-Steps: 
+**View Historical Rates**
 
-    1) Clone down the repo, and run the command 'cd converter-be'
-    2) Run the following 4 commands
-        i) 'rails db:create'
-        ii) 'rails db:migrate'
-        iii) 'rails db:seed'
-        iiii) 'rails s'
-    3) Locate the front end repo and follow the steps there to complete set up
+![HISTORICAL RATES](https://media.giphy.com/media/chKfrmf44tjUdKBdU5/giphy.gif)
+
+**Contains Information for 249 Countries**
+
+![ALL COUNTRIES](https://media.giphy.com/media/MdjWkwLrQxAMLZD4Zv/giphy.gif)
