@@ -1,4 +1,4 @@
-require 'dotenv'
+# require 'dotenv'
 require 'rest-client'
 
 class CountriesController < ApplicationController
